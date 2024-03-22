@@ -1,0 +1,35 @@
+export enum deviceStatus {
+    INUSE = "inuse",
+    AVAILABLE = "available",
+    SPOILT = "spoilt",
+    WAREHOUSE = "warehouse",
+    INOFFICE = "inoffice",
+    OUTFORREPAIR = "outforrepair",
+    REPAIRING = "repairing",
+    REPAIRED = "repaired",
+    DISPOSED = "disposed",
+    TOBEREPAIRED = "toberepaired",
+    LOST = "lost",
+    UNKNOWN = "unknown",
+    STOLEN = "stolen",
+}
+export enum deviceType {
+    LAPTOP = "laptop",
+    DESKTOP = "desktop",
+    MOBILE = "mobile",
+    TABLET = "tablet",
+    SERVER = "server",
+    PRINTER = "printer",
+    SCANNER = "scanner",
+    NETWORKING = "networking",
+    STORAGE = "storage",
+    MONITOR = "monitor",
+    PROJECTOR = "projector",
+    UPS = "ups",
+    OTHER = "other",
+}
+export enum deviceLogTypes {
+    REASSIGN = "reassign",
+    MAINTENANCE = "maintenance",
+    STATUS = "status",
+}
