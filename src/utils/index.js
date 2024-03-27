@@ -17,7 +17,7 @@ export const WrapValidationHandler = (controllerFn) => {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(422).json({ errors: errors.array() });
+        return res.status(422).json({ message: errors.array()[0]?.msg || "Invalid request body" });
       }
       await controllerFn(req, res, next);
     } catch (err) {
