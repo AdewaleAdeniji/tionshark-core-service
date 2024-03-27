@@ -5,6 +5,7 @@ import deviceRouter from "./routes/deviceRouter";
 import { ValidateUserToken } from "./middlewares/userServiceMiddleware";
 import orgRouter from "./routes/orgRouter";
 import mongoose from "mongoose";
+import userRouter from "./routes/userRouter";
 
 const cors = require("cors");
 
@@ -17,7 +18,7 @@ app.use(cors({ origin: "*" }));
 
 
 //routes
-
+app.use("/user", userRouter)
 app.use("/devices", ValidateUserToken, deviceRouter)
 app.use('/organizations', ValidateUserToken, orgRouter)
 
@@ -49,7 +50,7 @@ app.use((err: any, req: Request, res: Response, next: any) => {
 
 // handle 404s
 app.use((req: Request, res: Response) => {
-    res.status(404).send({
+    return res.status(404).send({
         message: "URL Not found",
     });
 });

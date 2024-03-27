@@ -11,9 +11,10 @@ export const verifyToken = async (token: string) => {
   // if (user) {
   //   return user;
   // }
+
   var config = {
     method: "get",
-    url: USER_SERVICE + "/api/user",
+    url: USER_SERVICE + "/user",
     headers: {
       Authorization: `Bearer ${token}`,
       appid: USER_SERVICE_APP_ID,
@@ -42,7 +43,7 @@ export const verifyToken = async (token: string) => {
 export const loginUser = async (email: string, password: string) => {
   var config = {
     method: "post",
-    url: USER_SERVICE + "/api/user/login",
+    url: USER_SERVICE + "/user/login",
     headers: {
       appid: USER_SERVICE_APP_ID,
       authpublickey: USER_SERVICE_PUBLIC_KEY,
@@ -66,18 +67,15 @@ export const loginUser = async (email: string, password: string) => {
   }
 };
 
-export const registerUser = async (email: string, password: string) => {
+export const registerUser = async (payload: any) => {
   var config = {
     method: "post",
-    url: USER_SERVICE + "/api/user/register",
+    url: USER_SERVICE + "/user/register",
     headers: {
       appid: USER_SERVICE_APP_ID,
       authpublickey: USER_SERVICE_PUBLIC_KEY,
     },
-    data: {
-      email,
-      password,
-    },
+    data: payload
   };
   try {
     const req = await axios(config);
